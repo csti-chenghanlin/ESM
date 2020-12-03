@@ -2,10 +2,11 @@ name: Dev
 on:
   push:
     tags:
-    - 'dev-**'
+    - dev*
 
 jobs:
   dev-job:
+    # if: github.event.base_ref == 'refs/heads/master'
     name: Build ESM
     runs-on: [self-hosted, Linux, X64, test]
     steps:
