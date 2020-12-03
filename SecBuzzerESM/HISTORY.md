@@ -1,4 +1,7 @@
 # Release History
+# V1.4.1 (2020-12-03)
+- 123
+
 # V1.4.0 (2020-12-03)
 - 修正 packet_reporter 因各式回傳失敗
 - 修正 packet_reporter 噴錯後無法重啟
