@@ -1,8 +1,8 @@
 name: Dev
-on:
+on: 
   create:
     tags:
-    - dev*
+      - dev-*
 
 jobs:
   dev-job:
