@@ -39,15 +39,21 @@ jobs:
       #     git tag -a dev-${{ steps.tag_version.outputs.new_tag }} -m ${{ steps.tag_version.outputs.new_tag }}
       #     git push -u origin master --tags
 
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1.1.3
+      # - name: Repository Dispatch
+      #   uses: peter-evans/repository-dispatch@v1.1.3
+      #   with:
+      #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      #     event-type: build
+      #     client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+      # - name: Repository Dispatch
+      #   uses: peter-evans/repository-dispatch@v1
+      #   with:
+      #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      #     event-type: my-event
+      #     client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+
+      - name: Invoke workflow without inputs
+        uses: benc-uk/workflow-dispatch@v1
         with:
+          workflow: build
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: build
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: my-event
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
