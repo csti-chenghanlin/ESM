@@ -1,8 +1,7 @@
 name: Dev
-on: 
-  create:
-    tags:
-      - dev-*
+on: push
+    # tags:
+    #   - 'dev-*'
 
 jobs:
   dev-job:
@@ -12,4 +11,7 @@ jobs:
     steps:
     - name: RUN!
       run: |
-        echo "Done!"
+        echo "ref"
+        echo ${{ github.ref }}
+        echo "head ref"
+        echo ${{ github.head_ref }}
