@@ -1,7 +1,8 @@
 name: Dev
 on:
   repository_dispatch:
-    types: [my-event]
+    types: 
+    - my-event
 
 jobs:
   dev-job:
