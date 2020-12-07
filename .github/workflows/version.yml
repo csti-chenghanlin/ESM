@@ -44,5 +44,5 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           #repository: csti-chenghanlin/ESM
-          event-type: my-event
+          event-type: build
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
