@@ -1,7 +1,11 @@
 name: Dev
-on:
-  repository_dispatch:
-    types: [build]
+on: 
+  push:
+    branches:
+      - master
+# on:
+#   repository_dispatch:
+#     types: [build]
 
 jobs:
   dev-job:
