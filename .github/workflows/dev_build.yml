@@ -5,7 +5,6 @@ on:
 
 jobs:
   dev-job:
-    # if: github.event.base_ref == 'refs/heads/master'
     name: Build ESM
     runs-on: [self-hosted, Linux, X64, test]
     steps:
@@ -15,3 +14,4 @@ jobs:
         echo ${{ github.ref }}
         echo "head ref"
         echo ${{ github.head_ref }}
+        echo ${{ github.event.client_payload.sha }}

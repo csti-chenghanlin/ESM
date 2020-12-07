@@ -40,9 +40,8 @@ jobs:
           git push -u origin master --tags
 
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
+        uses: peter-evans/repository-dispatch@v1.1.3
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          #repository: csti-chenghanlin/ESM
           event-type: build
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
