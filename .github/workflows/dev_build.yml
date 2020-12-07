@@ -1,12 +1,17 @@
-name: Repository Dispatch
+name: Dev
 on:
   repository_dispatch:
-    types: [my-event]
+    types: [build]
+
 jobs:
-  myEvent:
-    runs-on: ubuntu-latest
+  dev-job:
+    name: Build ESM
+    runs-on: [self-hosted, Linux, X64, test]
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.client_payload.ref }}
-      - run: echo ${{ github.event.client_payload.sha }}
+    - name: RUN!
+      run: |
+        echo "ref"
+        echo ${{ github.ref }}
+        echo "head ref"
+        echo ${{ github.head_ref }}
+        
