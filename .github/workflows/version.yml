@@ -39,3 +39,10 @@ jobs:
           git tag -a dev-${{ steps.tag_version.outputs.new_tag }} -m ${{ steps.tag_version.outputs.new_tag }}
           git push -u origin master --tags
 
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: csti-chenghanlin/ESM
+          event-type: my-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

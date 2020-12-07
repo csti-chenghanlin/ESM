@@ -1,7 +1,7 @@
 name: Dev
-on: push
-    # tags:
-    #   - 'dev-*'
+on:
+  repository_dispatch:
+    types: [my-event]
 
 jobs:
   dev-job:
